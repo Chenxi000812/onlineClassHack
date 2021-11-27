@@ -13,12 +13,13 @@ import java.util.*;
  */
 public class AppRun {
     public static void main(String[] args) throws IOException {
-        Login login = new Login("17811483900","Zlf17811483900","632",true);
+        Login login = new Login("200401201","Gcx200401230","632",false);
         LessonAction lessonAction = new LessonAction(
                 login.uuid, "1633813007000",
-                "425a515040524258454a58595e445a4a");
+                "42515b5845524258454a585859465d42");
         //大学生心理健康教育 435159514d524258454a585f5b4d5b40
         //传统文化 425a515040524258454a58595e445a4a
+        //sql 42515b5845524258454a585859465d42
         login.login(lessonAction);
         JSONArray objects = lessonAction.videoList(login.okHttpClient);
         for (Object o:objects){
@@ -62,32 +63,4 @@ public class AppRun {
             }
         }
     }
-//    public static void main(String[] args) throws IOException {
-//        Login login = new Login("13052352838","13052352838Abc","632",true);
-//        LessonAction lessonAction = new LessonAction(login.uuid, "1633813007000","435159514d524258454a585f5b4d5b40");
-//        login.login(lessonAction);
-//        JSONArray objects = lessonAction.videoList(login.okHttpClient);
-//        ExamAction examAction = new ExamAction(lessonAction.recruitId,lessonAction.courseId,login.uuid,login.schoolId);
-//        login.login(examAction);
-//        examAction.setAuthorization(login.okHttpClient);
-//        JSONArray objects1 = examAction.homeWorkList(login.okHttpClient);
-//        System.out.println(objects1.toJSONString());
-//        for (Object o :objects1){
-//            JSONObject studentHomework = (JSONObject) o;
-//            JSONArray jsonArray = examAction.contentList(login.okHttpClient, studentHomework.getString("id"), studentHomework.getString("examId"));
-//            StringBuilder sb = new StringBuilder();
-//            for (Object object:jsonArray){
-//                JSONObject j = (JSONObject) object;
-//                JSONArray questionDtos = j.getJSONArray("questionDtos");
-//                for (Object obj:questionDtos){
-//                    JSONObject question = (JSONObject) obj;
-//                    sb.append(question.getString("eid"));
-//                    sb.append(",");
-//                }
-//            }
-//            sb.deleteCharAt(sb.length()-1);
-//            examAction.generateAnswer(login.okHttpClient,studentHomework.getString("id"),studentHomework.getString("examId"),sb.toString());
-//        }
-//
-//    }
 }

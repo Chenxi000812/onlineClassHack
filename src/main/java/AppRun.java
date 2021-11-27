@@ -13,8 +13,12 @@ import java.util.*;
  */
 public class AppRun {
     public static void main(String[] args) throws IOException {
-        Login login = new Login("13162926218","123456Dxy","632",true);
-        LessonAction lessonAction = new LessonAction(login.uuid, "1633813007000","425a515040524258454a58595e445a4a");
+        Login login = new Login("17811483900","Zlf17811483900","632",true);
+        LessonAction lessonAction = new LessonAction(
+                login.uuid, "1633813007000",
+                "425a515040524258454a58595e445a4a");
+        //大学生心理健康教育 435159514d524258454a585f5b4d5b40
+        //传统文化 425a515040524258454a58595e445a4a
         login.login(lessonAction);
         JSONArray objects = lessonAction.videoList(login.okHttpClient);
         for (Object o:objects){
@@ -57,13 +61,10 @@ public class AppRun {
                 }
             }
         }
-
-
     }
-}
-//生成答案
-//Login login = new Login("200401230","Wcx929326179","632");
-//        LessonAction lessonAction = new LessonAction(login.uuid, "1633813007000","425a515040524258454a58595e445a4a");
+//    public static void main(String[] args) throws IOException {
+//        Login login = new Login("13052352838","13052352838Abc","632",true);
+//        LessonAction lessonAction = new LessonAction(login.uuid, "1633813007000","435159514d524258454a585f5b4d5b40");
 //        login.login(lessonAction);
 //        JSONArray objects = lessonAction.videoList(login.okHttpClient);
 //        ExamAction examAction = new ExamAction(lessonAction.recruitId,lessonAction.courseId,login.uuid,login.schoolId);
@@ -87,3 +88,6 @@ public class AppRun {
 //            sb.deleteCharAt(sb.length()-1);
 //            examAction.generateAnswer(login.okHttpClient,studentHomework.getString("id"),studentHomework.getString("examId"),sb.toString());
 //        }
+//
+//    }
+}
